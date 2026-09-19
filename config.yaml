@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────
+#  NeuralZip — Master Configuration
+# ─────────────────────────────────────────────
+
+# --- Image settings ---
+image_size: 1024          # Input / output spatial resolution (square)
+# Set in_channels to match your dataset: eurosat=3, nih_chest_xray=1
+in_channels: 3            # 1 = grayscale (X-ray), 3 = RGB (satellite/eurosat)
+
+# --- Model architecture ---
+base_channels: 16         # Channels after first encoder conv
+bottleneck_channels: 256  # Channels at the bottleneck (deepest layer)
+
+# --- Training ---
+batch_size: 8
+lr: 1.0e-4
+epochs: 50
+alpha: 0.5                # Loss weight: alpha*MSE + (1-alpha)*SSIM_loss
+
+# --- Dataset ---
+# "eurosat"       — RGB satellite imagery, no auth required (recommended default)
+# "nih_chest_xray"— Grayscale X-ray, requires ~/.kaggle/kaggle.json credentials
+dataset: eurosat
+data_dir: data/processed  # Directory of preprocessed 1024x1024 images
+val_split: 0.2            # Fraction of data used for validation
+num_workers: 4
+
+# --- Outputs ---
+output_dir: outputs/
+checkpoint_dir: outputs/checkpoints/
+sample_dir: outputs/samples/
+best_model_path: outputs/best_model.pt
+training_log: outputs/training_log.csv
