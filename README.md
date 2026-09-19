@@ -262,12 +262,6 @@ consumption, and e-waste — in direct support of **UN SDG 9** and **UN SDG 12**
 
 ---
 
-## 📜 License
-
-MIT License — see [LICENSE](LICENSE) for details.
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome. Please open an issue to discuss proposed changes before
